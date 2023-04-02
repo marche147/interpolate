@@ -1,0 +1,16 @@
+#!/bin/bash
+
+pass="@CMAKE_CURRENT_BINARY_DIR@/pass/libInterpolate.dylib"
+dep="@CMAKE_CURRENT_SOURCE_DIR@/runtime/modpow.c"
+compiler="@CLANG_BINARY@"
+
+if [ $# -eq 0 ]; then
+    echo "No arguments provided."
+    exit 1
+fi
+
+exec $compiler                  \
+    @CLANG_LOAD_PASS@"$pass"    \
+    "$@"                        \
+    "$dep"                      \
+    -Qunused-arguments
