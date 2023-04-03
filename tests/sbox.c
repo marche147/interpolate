@@ -1,5 +1,5 @@
 // RUN: %mycc -o %t.instrumented %s
-// %t.instrumented | FileCheck --check-prefix=CHECK-OK %s
+// RUN: %t.instrumented | %filecheck --check-prefix=CHECK-OK %s
 
 #include <stdint.h>
 #include <stdio.h>
